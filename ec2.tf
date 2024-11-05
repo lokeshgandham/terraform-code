@@ -1,12 +1,13 @@
-#creating ec2 instance
-resource "aws_instance" "wordpress1" {
-  ami           = "ami-0a5c3558529277641"
+#Creating 1st EC2 instance
+resource "aws_instance" "instance-wordpress" {
+  ami = "ami-0ddc798b3f1a5117e"
   instance_type = "t2.micro"
+  key_name = "wordpress"
+  subnet_id = aws_subnet.public_sb_1.id
+  vpc_security_group_ids = [aws_security_group.security1.id]
   associate_public_ip_address = true
   user_data = file("data.sh")
-  key_name = "wordpress"
-  vpc_security_group_ids= [aws_security_group.group2.id]
-  tags = {
-    Name = "wordpress1"
-  }
+tags = {
+    Name = "public_python1"
+}
 }

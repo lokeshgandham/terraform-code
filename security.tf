@@ -5,8 +5,8 @@ resource "aws_security_group" "security1" {
 
 #inbound Rules
 ingress  {
-    from_port = "7074"
-    to_port = "7074"
+    from_port = "7070"
+    to_port = "7070"
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
 }
